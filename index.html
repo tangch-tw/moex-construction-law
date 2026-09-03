@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>普考建築工程　營建法規概要　歷屆試題複習系統</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%232f5d50'/%3E%3Ctext x='16' y='23' font-size='19' text-anchor='middle' fill='%23fff' font-family='sans-serif'%3E%E6%B3%95%3C/text%3E%3C/svg%3E">
+<style>
+  :root{
+    --bg:#f6f5f2; --panel:#ffffff; --ink:#1c1c1a; --muted:#5f5c55; --line:#ddd8cf;
+    --accent:#2f5d50; --accent-soft:#e6efe9; --warn:#8a5a1e; --warn-soft:#fbf1e2;
+    --bad:#8c3a34; --bad-soft:#f8e9e7; --good:#2f5d50;
+    --radius:10px;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#16181a; --panel:#1e2124; --ink:#e9e6e0; --muted:#a8a49c; --line:#33383c;
+      --accent:#7fb8a5; --accent-soft:#22302c; --warn:#d8a45f; --warn-soft:#2e2618;
+      --bad:#dd8a82; --bad-soft:#32211f; --good:#7fb8a5;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#16181a; --panel:#1e2124; --ink:#e9e6e0; --muted:#a8a49c; --line:#33383c;
+    --accent:#7fb8a5; --accent-soft:#22302c; --warn:#d8a45f; --warn-soft:#2e2618;
+    --bad:#dd8a82; --bad-soft:#32211f; --good:#7fb8a5;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--bg); color:var(--ink);
+    font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;
+    font-size:17px; line-height:1.85;
+  }
+  .wrap{max-width:860px;margin:0 auto;padding:24px 18px 72px}
+  header.site{border-bottom:2px solid var(--accent);padding-bottom:14px;margin-bottom:22px}
+  header.site h1{font-size:1.28rem;margin:0 0 4px;letter-spacing:.02em}
+  header.site p{margin:0;color:var(--muted);font-size:.88rem}
+  .panel{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:22px;margin-bottom:18px}
+  h2{font-size:1.06rem;margin:0 0 12px;color:var(--accent)}
+  h3{font-size:.95rem;margin:20px 0 8px;color:var(--accent)}
+  label{display:block;font-size:.9rem;color:var(--muted);margin:14px 0 6px}
+  select,textarea,input[type=text]{
+    width:100%;font-family:inherit;font-size:1rem;color:var(--ink);
+    background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:10px 12px;
+  }
+  textarea{min-height:260px;line-height:1.9;resize:vertical}
+  .btn{
+    display:inline-block;font-family:inherit;font-size:.95rem;font-weight:600;cursor:pointer;
+    border:1px solid var(--accent);background:var(--accent);color:#fff;
+    border-radius:8px;padding:10px 20px;margin:14px 8px 0 0;
+  }
+  .btn.ghost{background:transparent;color:var(--accent)}
+  .btn:disabled{opacity:.45;cursor:not-allowed}
+  .meta{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
+  .tag{font-size:.78rem;background:var(--accent-soft);color:var(--accent);border-radius:999px;padding:3px 11px;white-space:nowrap}
+  .tag.plain{background:transparent;border:1px solid var(--line);color:var(--muted)}
+  .qtext{font-family:"Noto Serif TC","Songti TC","PMingLiU","MingLiU",serif;
+    font-size:1.1rem;line-height:2.1;white-space:pre-wrap;letter-spacing:.01em}
+  .ans p{font-family:"Noto Serif TC","Songti TC","PMingLiU","MingLiU",serif;line-height:2.05}
+  .counter{font-size:.82rem;color:var(--muted);text-align:right;margin-top:6px}
+  .score{display:flex;align-items:baseline;gap:12px;margin-bottom:6px}
+  .score b{font-size:2.6rem;line-height:1;color:var(--accent);font-variant-numeric:tabular-nums}
+  .score span{color:var(--muted);font-size:.9rem}
+  .band{font-size:.92rem;color:var(--muted);margin-bottom:16px}
+  ul.pts{list-style:none;padding:0;margin:0}
+  ul.pts li{padding:8px 12px;border-radius:8px;margin-bottom:6px;font-size:.94rem;line-height:1.7}
+  li.hit{background:var(--accent-soft)}
+  li.miss{background:var(--bad-soft)}
+  li .mk{font-weight:700;margin-right:8px}
+  li.hit .mk{color:var(--good)}
+  li.miss .mk{color:var(--bad)}
+  details{border:1px solid var(--line);border-radius:8px;padding:12px 14px;margin-top:14px;background:var(--bg)}
+  details summary{cursor:pointer;font-weight:600;color:var(--accent);font-size:.95rem}
+  .ans p{margin:12px 0;text-align:justify}
+  .src{font-size:.88rem;color:var(--muted);background:var(--bg);border-left:3px solid var(--accent);padding:10px 12px;border-radius:0 6px 6px 0;margin:12px 0}
+  .note{font-size:.85rem;color:var(--warn);background:var(--warn-soft);border-radius:8px;padding:10px 12px;margin:12px 0}
+  table{width:100%;border-collapse:collapse;font-size:.9rem;margin-top:10px}
+  th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+  th{background:var(--accent-soft);color:var(--accent);white-space:nowrap}
+  td.num{text-align:center;white-space:nowrap;font-variant-numeric:tabular-nums}
+  .foot{font-size:.8rem;color:var(--muted);text-align:center;margin-top:30px;line-height:1.8}
+  .hidden{display:none!important}
+  @media print{
+    body{background:#fff;font-size:11.5pt}
+    .noprint{display:none!important}
+    .panel{border:none;padding:0;margin-bottom:14px}
+    .wrap{max-width:none;padding:0}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="site">
+    <h1>公務人員普通考試　建築工程類科　營建法規概要</h1>
+    <p>歷屆試題（104–115 年）隨機練習與自我評分系統</p>
+  </header>
+
+  <!-- 開始 -->
+  <section id="view-start" class="panel">
+    <h2>開始練習</h2>
+    <p style="margin-top:0;color:var(--muted);font-size:.92rem">
+      本系統收錄考選部考畢試題查詢平臺公布之 104 至 115 年普考建築工程「營建法規概要」全部
+      <b id="totalN">—</b> 題。全部題目均已建立參考答案與得分要點。本科目歷年均為純申論題型，考選部未公布申論題標準答案，
+      系統所給分數與參考答案為教學用途之研判，非官方標準。
+    </p>
+
+    <label for="mode">練習模式</label>
+    <select id="mode">
+      <option value="random">隨機出題（全部題目）</option>
+      <option value="tag">依考點法規練習</option>
+      <option value="wrong">錯題重練（重出過去未達 7 分之題目）</option>
+    </select>
+
+    <div id="tagWrap" class="hidden">
+      <label for="tagsel">考點法規</label>
+      <select id="tagsel"></select>
+    </div>
+
+    <div id="wrongInfo" class="note hidden"></div>
+
+    <label for="yearsel">年度篩選</label>
+    <select id="yearsel"><option value="">不限年度</option></select>
+
+    <label for="timed" style="margin-top:16px">作答計時</label>
+    <select id="timed">
+      <option value="0">不計時</option>
+      <option value="1350">每題 22 分 30 秒（普考 90 分鐘 4 題之配速）</option>
+      <option value="900">每題 15 分鐘（加壓練習）</option>
+    </select>
+
+    <button class="btn" id="btnStart">開始作答</button>
+    <button class="btn ghost" id="btnResume">接續上次紀錄</button>
+  </section>
+
+  <!-- 作答 -->
+  <section id="view-q" class="panel hidden">
+    <div class="meta" id="qmeta"></div>
+    <div class="qtext" id="qtext"></div>
+    <div class="note" id="qnote" style="display:none"></div>
+
+    <label for="ans">作答區（不必抄題，請依題號順序條列作答）</label>
+    <textarea id="ans" placeholder="請在此輸入答案。建議先寫出法源（法規名稱與條號），再依要件逐項論述。"></textarea>
+    <div class="counter"><span id="timer" style="float:left;font-variant-numeric:tabular-nums"></span><span id="wc">0</span> 字</div>
+
+    <button class="btn" id="btnSubmit">送出答案並評分</button>
+    <button class="btn ghost" id="btnSkip">略過此題</button>
+    <button class="btn ghost" id="btnStopA">結束並檢視紀錄</button>
+  </section>
+
+  <!-- 評分 -->
+  <section id="view-r" class="panel hidden">
+    <div class="meta" id="rmeta"></div>
+    <div class="score"><b id="scoreN">—</b><span>／ 10 分</span></div>
+    <div class="band" id="scoreBand"></div>
+
+    <h3>要點檢核</h3>
+    <ul class="pts" id="ptlist"></ul>
+
+    <div class="src" id="rsrc"></div>
+
+    <details id="refBox" open>
+      <summary>參考答案</summary>
+      <div class="ans" id="refAns"></div>
+    </details>
+
+    <details>
+      <summary>我的作答</summary>
+      <div class="ans" id="myAns"></div>
+    </details>
+
+    <button class="btn" id="btnNext">下一題</button>
+    <button class="btn ghost" id="btnStopB">結束並檢視紀錄</button>
+  </section>
+
+  <!-- 紀錄 -->
+  <section id="view-end" class="panel hidden">
+    <h2>本次練習紀錄</h2>
+    <div id="summary"></div>
+    <table id="rectable"></table>
+    <div class="noprint">
+      <button class="btn" id="btnPrint">匯出 PDF／列印</button>
+      <button class="btn ghost" id="btnCopy">複製文字紀錄</button>
+      <button class="btn ghost" id="btnAgain">繼續練習</button>
+      <button class="btn ghost" id="btnReset">清除紀錄重新開始</button>
+    </div>
+    <div id="exportBox" class="noprint hidden">
+      <div class="note" id="exportMsg"></div>
+      <textarea id="exportText" readonly style="min-height:220px;font-size:.9rem;line-height:1.7"></textarea>
+      <button class="btn ghost" id="btnCopy2">複製全文</button>
+    </div>
+  </section>
+
+  <div class="foot noprint">
+    題源：考選部考畢試題查詢平臺　·　參考答案法源查證自全國法規資料庫、內政部主管法規共用系統、行政院公共工程委員會主管法規共用系統<br>
+    法條以現行版本為準；命題當年版本有實質差異者，於參考答案中另行標註。
+  </div>
+</div>
+
+<script>
+"use strict";
+
+const LS_KEY = "moex-cl-practice-v1";
+let BANK = null, POOL = [], CUR = null, REC = [];
+
+/* ---------- 文字正規化：全形轉半形、去空白、統一大小寫 ---------- */
+function norm(s){
+  if(!s) return "";
+  s = s.replace(/[！-～]/g, c => String.fromCharCode(c.charCodeAt(0) - 0xFEE0));
+  s = s.toLowerCase();
+  s = s.replace(/[\s　]/g, "");
+  s = s.replace(/[，。、；：（）()「」『』〔〕【】,.;:]/g, "");
+  return s;
+}
+
+/* ---------- 評分：依得分要點做關鍵詞群比對 ---------- */
+function grade(text, points){
+  const t = norm(text);
+  const detail = points.map(p => {
+    let hitGroups = 0;
+    const missed = [];
+    p.groups.forEach(g => {
+      const ok = g.some(k => t.includes(norm(k)));
+      if(ok) hitGroups++; else missed.push(g[0]);
+    });
+    return {label: p.label, hit: hitGroups >= p.min, hitGroups, need: p.min,
+            total: p.groups.length, missed};
+  });
+  const hits = detail.filter(d => d.hit).length;
+  let score = Math.round(10 * hits / points.length);
+  const len = t.length;
+  if(len < 30) score = Math.min(score, 2);
+  else if(len < 80) score = Math.min(score, 5);
+  if(score === 0 && len >= 80) score = 1;
+  return {score, hits, total: points.length, detail};
+}
+
+const BANDS = [
+  [9, "法源與條號正確，核心要件完整列舉，並能延伸論述。"],
+  [7, "法源正確，核心要件大致完整，僅少數項目遺漏。"],
+  [5, "答題方向正確，惟要件明顯不足，或條號誤植而實質內容正確。"],
+  [3, "僅能片段回答，或以常識作答而未引法規。"],
+  [1, "僅寫出零星關鍵詞，未成論述。"],
+  [0, "空白、離題，或所述法規與題目無關。"]
+];
+function bandOf(s){ for(const b of BANDS){ if(s >= b[0]) return b[1]; } return BANDS[BANDS.length-1][1]; }
+
+/* ---------- 畫面切換 ---------- */
+const V = {start:"view-start", q:"view-q", r:"view-r", end:"view-end"};
+function show(name){
+  Object.values(V).forEach(id => document.getElementById(id).classList.add("hidden"));
+  document.getElementById(V[name]).classList.remove("hidden");
+  window.scrollTo({top:0, behavior:"smooth"});
+}
+
+/* ---------- 狀態保存 ---------- */
+let HIST = {};
+function save(){
+  try{ localStorage.setItem(LS_KEY, JSON.stringify({rec:REC, done:POOL.done||[], hist:HIST})); }catch(e){}
+}
+function load(){
+  try{
+    const raw = localStorage.getItem(LS_KEY);
+    if(!raw) return null;
+    return JSON.parse(raw);
+  }catch(e){ return null; }
+}
+
+/* ---------- 題庫載入 ---------- */
+(async function(){
+  const SRC = ["moex_construction_law_bank_104-115.json", "data/bank.json"];
+  let last = null;
+  for(const u of SRC){
+    try{
+      const r = await fetch(u);
+      if(r.ok) return r.json();
+      last = new Error("HTTP " + r.status);
+    }catch(e){ last = e; }
+  }
+  throw last || new Error("題庫檔案不存在");
+})()
+  .then(d => {
+    BANK = d;
+    document.getElementById("totalN").textContent = d.questions.length;
+    const yrs = [...new Set(d.questions.map(q => q.year_roc))].sort((a,b)=>a-b);
+    const sel = document.getElementById("yearsel");
+    yrs.forEach(y => {
+      const o = document.createElement("option");
+      o.value = String(y); o.textContent = y + " 年";
+      sel.appendChild(o);
+    });
+    const st = load();
+    if(st && st.hist) HIST = st.hist;
+    document.getElementById("btnResume").disabled = !(st && st.rec && st.rec.length);
+    initControls();
+  })
+  .catch(err => {
+    document.getElementById("view-start").innerHTML =
+      '<h2>題庫載入失敗</h2><p>' + err.message +
+      '</p><p style="font-size:.9rem;color:var(--muted)">本頁需以 HTTP 方式開啟。' +
+      '請部署至 GitHub Pages，或在本機專案資料夾執行 <code>python3 -m http.server 8000</code> ' +
+      '後開啟 <code>http://localhost:8000</code>。直接以檔案總管雙擊 index.html 會因瀏覽器安全限制而無法讀取題庫。</p>';
+  });
+
+/* ---------- 出題 ---------- */
+const WRONG_THRESHOLD = 7;
+function wrongIds(){
+  return Object.keys(HIST).filter(k => typeof HIST[k].last === "number" && HIST[k].last < WRONG_THRESHOLD);
+}
+function initControls(){
+  const tags = new Set();
+  BANK.questions.forEach(q => (q.law_tags || []).forEach(t => tags.add(t)));
+  const ts = document.getElementById("tagsel");
+  ts.innerHTML = "";
+  [...tags].sort((a,b)=>a.localeCompare(b,"zh-Hant")).forEach(t => {
+    const n = BANK.questions.filter(q => (q.law_tags||[]).includes(t)).length;
+    const o = document.createElement("option");
+    o.value = t; o.textContent = t + "（" + n + " 題）";
+    ts.appendChild(o);
+  });
+  const modeSel = document.getElementById("mode");
+  const sync = () => {
+    const m = modeSel.value;
+    document.getElementById("tagWrap").classList.toggle("hidden", m !== "tag");
+    const wi = document.getElementById("wrongInfo");
+    if(m === "wrong"){
+      const n = wrongIds().length;
+      wi.textContent = n ? ("目前有 " + n + " 題曾經未達 " + WRONG_THRESHOLD + " 分，將優先重出這些題目。")
+                         : ("尚無錯題紀錄。請先以隨機出題模式作答，未達 " + WRONG_THRESHOLD + " 分的題目會自動進入錯題本。");
+      wi.classList.remove("hidden");
+    } else {
+      wi.classList.add("hidden");
+    }
+  };
+  modeSel.onchange = sync;
+  sync();
+}
+
+function buildPool(){
+  const m = document.getElementById("mode").value;
+  const yr = document.getElementById("yearsel").value;
+  let qs = BANK.questions.slice();
+  if(m === "tag"){
+    const t = document.getElementById("tagsel").value;
+    qs = qs.filter(q => (q.law_tags || []).includes(t));
+  } else if(m === "wrong"){
+    const ids = wrongIds();
+    qs = qs.filter(q => ids.includes(q.id));
+  }
+  if(yr) qs = qs.filter(q => String(q.year_roc) === yr);
+  POOL = qs;
+  POOL.done = [];
+}
+function pick(){
+  const left = POOL.filter(q => !POOL.done.includes(q.id));
+  const src = left.length ? left : (POOL.done = [], POOL);
+  return src[Math.floor(Math.random() * src.length)];
+}
+
+function renderQ(){
+  CUR = pick();
+  const m = document.getElementById("qmeta");
+  m.innerHTML = "";
+  [CUR.year_roc + " 年", "第 " + CUR.question_no + " 題", CUR.points + " 分", CUR.type]
+    .forEach(t => { const s = document.createElement("span"); s.className = "tag"; s.textContent = t; m.appendChild(s); });
+  (CUR.law_tags || []).forEach(t => {
+    const s = document.createElement("span"); s.className = "tag plain"; s.textContent = t; m.appendChild(s);
+  });
+  document.getElementById("qtext").textContent = CUR.question;
+  const note = document.getElementById("qnote");
+  if(!CUR.graded){
+    note.style.display = "block";
+    note.textContent = "本題參考答案尚在建置中，送出後僅保留作答紀錄，不予評分。";
+  } else { note.style.display = "none"; }
+  const ta = document.getElementById("ans");
+  ta.value = ""; document.getElementById("wc").textContent = "0";
+  show("q"); ta.focus(); startTimer();
+}
+
+/* ---------- 計時 ---------- */
+let TIMER = null, TLEFT = 0, TSET = 0;
+function stopTimer(){ if(TIMER){ clearInterval(TIMER); TIMER = null; } }
+function startTimer(){
+  stopTimer();
+  const el = document.getElementById("timer");
+  TSET = parseInt(document.getElementById("timed").value, 10) || 0;
+  if(!TSET){ el.textContent = ""; return; }
+  TLEFT = TSET;
+  const paint = () => {
+    const m = Math.floor(Math.abs(TLEFT) / 60), sec = Math.abs(TLEFT) % 60;
+    el.textContent = (TLEFT < 0 ? "超時 " : "剩餘 ") + m + ":" + String(sec).padStart(2, "0");
+    el.style.color = TLEFT < 0 ? "var(--bad)" : (TLEFT < 180 ? "var(--warn)" : "var(--muted)");
+  };
+  paint();
+  TIMER = setInterval(() => { TLEFT--; paint(); }, 1000);
+}
+
+document.getElementById("ans").addEventListener("input", e => {
+  document.getElementById("wc").textContent = e.target.value.replace(/\s/g, "").length;
+});
+
+/* ---------- 送出評分 ---------- */
+function submit(){
+  stopTimer();
+  const text = document.getElementById("ans").value;
+  const rm = document.getElementById("rmeta");
+  rm.innerHTML = document.getElementById("qmeta").innerHTML;
+
+  let res = null;
+  if(CUR.graded){
+    res = grade(text, CUR.scoring_keywords);
+    document.getElementById("scoreN").textContent = res.score;
+    document.getElementById("scoreBand").textContent =
+      bandOf(res.score) + "（命中 " + res.hits + " ／ " + res.total + " 項得分要點）";
+  } else {
+    document.getElementById("scoreN").textContent = "—";
+    document.getElementById("scoreBand").textContent = "本題尚未建立參考答案，不予評分。";
+  }
+
+  const ul = document.getElementById("ptlist");
+  ul.innerHTML = "";
+  if(res){
+    res.detail.forEach(d => {
+      const li = document.createElement("li");
+      li.className = d.hit ? "hit" : "miss";
+      let txt = d.label;
+      if(!d.hit && d.missed.length){
+        txt += "　→　未見：" + d.missed.slice(0, 4).join("、");
+      }
+      li.innerHTML = '<span class="mk">' + (d.hit ? "✓" : "✗") + "</span>" + txt;
+      ul.appendChild(li);
+    });
+  } else {
+    const li = document.createElement("li");
+    li.className = "miss";
+    li.textContent = "尚無得分要點可供比對。";
+    ul.appendChild(li);
+  }
+
+  document.getElementById("rsrc").textContent = "【法源】" + (CUR.legal_source || "（待補）");
+  const ra = document.getElementById("refAns");
+  ra.innerHTML = "";
+  if(CUR.reference_answer){
+    CUR.reference_answer.split(/\n\n+/).forEach(p => {
+      const el = document.createElement("p"); el.textContent = p; ra.appendChild(el);
+    });
+  } else {
+    const el = document.createElement("p");
+    el.textContent = "參考答案建置中。建議依「法源→要件→體系關聯→實務例證」四段自行整理。";
+    ra.appendChild(el);
+  }
+  const ma = document.getElementById("myAns");
+  ma.innerHTML = "";
+  (text || "（未作答）").split(/\n+/).forEach(p => {
+    const el = document.createElement("p"); el.textContent = p; ma.appendChild(el);
+  });
+
+  if(!POOL.done.includes(CUR.id)) POOL.done.push(CUR.id);
+  REC.push({
+    id: CUR.id, year: CUR.year_roc, no: CUR.question_no,
+    score: res ? res.score : null,
+    hits: res ? res.hits : null, total: res ? res.total : null,
+    chars: text.replace(/\s/g, "").length,
+    secs: TSET ? (TSET - TLEFT) : null,
+    missed: res ? res.detail.filter(d => !d.hit).map(d => d.label) : [],
+    at: new Date().toISOString()
+  });
+  if(res){
+    const h = HIST[CUR.id] || {n:0, best:null, last:null, missed:[]};
+    h.n += 1; h.last = res.score;
+    h.best = (h.best === null) ? res.score : Math.max(h.best, res.score);
+    h.missed = res.detail.filter(d => !d.hit).map(d => d.label);
+    HIST[CUR.id] = h;
+  }
+  save();
+  show("r");
+}
+
+/* ---------- 紀錄 ---------- */
+function renderEnd(){
+  const graded = REC.filter(r => r.score !== null);
+  const avg = graded.length ? (graded.reduce((a, b) => a + b.score, 0) / graded.length) : null;
+  const missCount = {};
+  REC.forEach(r => (r.missed || []).forEach(m => { missCount[m] = (missCount[m] || 0) + 1; }));
+  const weak = Object.entries(missCount).sort((a, b) => b[1] - a[1]).slice(0, 5);
+
+  let html = '<p>共作答 <b>' + REC.length + '</b> 題';
+  if(avg !== null) html += '，已評分 <b>' + graded.length + '</b> 題，平均 <b>' + avg.toFixed(1) + '</b> 分（滿分 10）';
+  html += '。</p>';
+  if(weak.length){
+    html += '<h3>最常漏答的要點</h3><ul class="pts">';
+    weak.forEach(w => { html += '<li class="miss"><span class="mk">✗</span>' + w[0] + '　（' + w[1] + ' 次）</li>'; });
+    html += '</ul>';
+  }
+  const wn = wrongIds().length;
+  html += '<p style="font-size:.9rem;color:var(--muted)">累計錯題本：' + wn + ' 題（曾經未達 ' + WRONG_THRESHOLD + ' 分）。下次可於開始畫面選擇「錯題重練」針對這些題目複習。</p>';
+  document.getElementById("summary").innerHTML = html;
+
+  let t = "<tr><th>序</th><th>年度</th><th>題號</th><th>分數</th><th>命中要點</th><th>字數</th><th>用時</th></tr>";
+  REC.forEach((r, i) => {
+    t += "<tr><td class='num'>" + (i + 1) + "</td><td class='num'>" + r.year +
+         "</td><td class='num'>" + r.no + "</td><td class='num'>" +
+         (r.score === null ? "—" : r.score) + "</td><td class='num'>" +
+         (r.total ? r.hits + "／" + r.total : "—") + "</td><td class='num'>" + r.chars +
+         "</td><td class='num'>" + (r.secs == null ? "—" : Math.floor(r.secs/60) + "分" + (r.secs%60) + "秒") + "</td></tr>";
+  });
+  document.getElementById("rectable").innerHTML = t;
+  show("end");
+}
+
+/* ---------- 事件 ---------- */
+document.getElementById("btnStart").onclick = () => { REC = []; buildPool(); if(!POOL.length){ alert(document.getElementById("mode").value === "wrong" ? "錯題本目前是空的，請先以隨機出題模式作答。" : "此範圍沒有題目，請調整篩選條件。"); return; } renderQ(); };
+document.getElementById("btnResume").onclick = () => {
+  const st = load(); if(!st) return;
+  REC = st.rec || []; buildPool(); POOL.done = st.done || []; renderQ();
+};
+document.getElementById("btnSubmit").onclick = submit;
+document.getElementById("btnSkip").onclick = () => { if(!POOL.done.includes(CUR.id)) POOL.done.push(CUR.id); renderQ(); };
+document.getElementById("btnNext").onclick = renderQ;
+document.getElementById("btnStopA").onclick = () => { stopTimer(); renderEnd(); };
+document.getElementById("btnStopB").onclick = renderEnd;
+document.getElementById("btnAgain").onclick = renderQ;
+/* ---------- 匯出紀錄 ---------- */
+function esc(x){ return String(x).replace(/[&<>]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;"}[c])); }
+
+function recordText(){
+  const graded = REC.filter(r => r.score !== null);
+  const avg = graded.length ? (graded.reduce((a,b)=>a+b.score,0)/graded.length).toFixed(1) : "—";
+  const lines = [];
+  lines.push("公務人員普通考試　建築工程類科　營建法規概要　練習紀錄");
+  lines.push("匯出時間：" + new Date().toLocaleString("zh-TW"));
+  lines.push("作答題數：" + REC.length + "　已評分：" + graded.length + "　平均：" + avg + " ／ 10");
+  lines.push("");
+  REC.forEach((r,i) => {
+    lines.push((i+1) + ". " + r.year + " 年第 " + r.no + " 題　得分 " +
+      (r.score === null ? "未評分" : r.score + "／10") +
+      (r.total ? "　命中要點 " + r.hits + "／" + r.total : "") +
+      "　字數 " + r.chars +
+      (r.secs == null ? "" : "　用時 " + Math.floor(r.secs/60) + " 分 " + (r.secs%60) + " 秒"));
+    if(r.missed && r.missed.length){
+      r.missed.forEach(m => lines.push("      未答要點：" + m));
+    }
+  });
+  const mc = {};
+  REC.forEach(r => (r.missed||[]).forEach(m => { mc[m] = (mc[m]||0)+1; }));
+  const weak = Object.entries(mc).sort((a,b)=>b[1]-a[1]).slice(0,5);
+  if(weak.length){
+    lines.push("");
+    lines.push("最常漏答的要點：");
+    weak.forEach(w => lines.push("　・" + w[0] + "（" + w[1] + " 次）"));
+  }
+  lines.push("");
+  lines.push("題源：考選部考畢試題查詢平臺。參考答案與分數為教學用途之研判，非官方標準答案。");
+  return lines.join("\n");
+}
+
+function printHTML(){
+  const body = document.getElementById("view-end").cloneNode(true);
+  body.querySelectorAll(".noprint").forEach(n => n.remove());
+  return '<!DOCTYPE html><html lang="zh-Hant-TW"><head><meta charset="utf-8">' +
+    '<title>營建法規概要　練習紀錄</title><style>' +
+    'body{font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;' +
+    'font-size:12pt;line-height:1.8;color:#1c1c1a;margin:28px 32px}' +
+    'h2{font-size:14pt;color:#2f5d50;margin:0 0 10px}h3{font-size:12pt;color:#2f5d50;margin:16px 0 6px}' +
+    'table{width:100%;border-collapse:collapse;font-size:11pt;margin-top:8px}' +
+    'th,td{border:1px solid #bbb;padding:6px 8px}th{background:#e6efe9;color:#2f5d50}' +
+    'td.num{text-align:center;font-variant-numeric:tabular-nums}' +
+    'ul.pts{list-style:none;padding:0}ul.pts li{padding:4px 0}li .mk{font-weight:700;margin-right:6px}' +
+    '.hd{border-bottom:2px solid #2f5d50;padding-bottom:8px;margin-bottom:16px}' +
+    '.hd b{font-size:13pt}.hd span{display:block;font-size:10pt;color:#5f5c55}' +
+    '</style></head><body><div class="hd"><b>公務人員普通考試　建築工程類科　營建法規概要</b>' +
+    '<span>練習紀錄　·　匯出時間 ' + esc(new Date().toLocaleString("zh-TW")) + '</span></div>' +
+    body.innerHTML + '</body></html>';
+}
+
+function showExportFallback(msg){
+  const box = document.getElementById("exportBox");
+  document.getElementById("exportMsg").textContent = msg;
+  document.getElementById("exportText").value = recordText();
+  box.classList.remove("hidden");
+  box.scrollIntoView({behavior:"smooth", block:"start"});
+}
+
+function copyText(){
+  const t = recordText();
+  const done = () => {
+    const b = document.getElementById("btnCopy");
+    const old = b.textContent; b.textContent = "已複製";
+    setTimeout(() => { b.textContent = old; }, 1600);
+  };
+  if(navigator.clipboard && window.isSecureContext){
+    navigator.clipboard.writeText(t).then(done).catch(() => showExportFallback("無法自動複製，請於下方文字框全選後自行複製。"));
+  } else {
+    showExportFallback("此環境不允許自動複製，請於下方文字框全選後自行複製。");
+  }
+}
+
+function exportRecord(){
+  if(!REC.length){ alert("目前沒有練習紀錄。"); return; }
+  const framed = (window.self !== window.top);
+  if(!framed){
+    try{ window.print(); return; }catch(e){}
+  }
+  let w = null;
+  try{ w = window.open("", "_blank"); }catch(e){ w = null; }
+  if(w && w.document){
+    w.document.open();
+    w.document.write(printHTML());
+    w.document.close();
+    setTimeout(() => { try{ w.focus(); w.print(); }catch(e){} }, 500);
+    return;
+  }
+  showExportFallback("此頁面在預覽視窗中執行，瀏覽器不允許直接開啟列印對話框。" +
+    "部署到 GitHub Pages 後以獨立網址開啟即可正常列印或另存 PDF。" +
+    "現在可先複製下方文字紀錄，或按 Ctrl+P（Mac 為 Command+P）列印。");
+}
+
+document.getElementById("btnPrint").onclick = exportRecord;
+document.getElementById("btnCopy").onclick = copyText;
+document.getElementById("btnCopy2").onclick = () => {
+  const ta = document.getElementById("exportText");
+  ta.focus(); ta.select();
+  try{ document.execCommand("copy"); }catch(e){}
+};
+document.getElementById("btnReset").onclick = () => {
+  if(!confirm("將清除本機所有練習紀錄，確定？")) return;
+  try{ localStorage.removeItem(LS_KEY); }catch(e){}
+  REC = []; HIST = {}; initControls(); show("start");
+};
+</script>
+</body>
+</html>
