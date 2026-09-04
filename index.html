@@ -643,6 +643,7 @@ function renderEnd(){
 }
 
 /* ---------- 事件 ---------- */
+show("cover");
 document.getElementById("btnEnter").onclick = () => { renderExams(); show("exam"); };
 document.getElementById("backToCover").onclick = () => show("cover");
 document.getElementById("backToExam").onclick = () => { renderExams(); show("exam"); };
