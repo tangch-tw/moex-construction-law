@@ -80,6 +80,39 @@
   td.num{text-align:center;white-space:nowrap;font-variant-numeric:tabular-nums}
   .foot{font-size:.8rem;color:var(--muted);text-align:center;margin-top:30px;line-height:1.8}
   .hidden{display:none!important}
+
+  /* ===== 校名字樣（每頁右上角固定） ===== */
+  :root{ --brand:#1a4fa0; }
+  @media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){ --brand:#8fb6f0; } }
+  :root[data-theme="dark"]{ --brand:#8fb6f0; }
+  .brandbar{
+    position:sticky; top:0; z-index:20;
+    display:flex; justify-content:flex-end; align-items:center;
+    background:var(--bg); padding:8px 0 6px; margin-bottom:6px;
+    border-bottom:1px solid var(--line);
+    font-size:.88rem; font-weight:600; color:var(--brand); letter-spacing:.04em;
+  }
+  /* ===== 封面 ===== */
+  #view-cover{ text-align:center; padding:46px 24px 40px; }
+  #view-cover .logo{ width:min(300px,74vw); height:auto; margin:0 auto 22px; display:block; }
+  #view-cover .org{ font-size:1.06rem; font-weight:700; color:var(--brand); letter-spacing:.14em; margin:0 0 30px; }
+  #view-cover .sys{ font-family:"Noto Serif TC","Songti TC","PMingLiU","MingLiU",serif;
+    font-size:1.6rem; line-height:1.5; margin:0 0 10px; color:var(--ink); }
+  #view-cover .sub{ font-size:.94rem; color:var(--muted); margin:0 0 30px; }
+  #view-cover .enter{ font-size:1.02rem; padding:12px 40px; }
+  .rule{ width:64px; height:3px; background:var(--accent); margin:0 auto 26px; border-radius:2px; }
+  /* ===== 選單卡片 ===== */
+  .choice{ display:block; width:100%; text-align:left; font-family:inherit; cursor:pointer;
+    background:var(--panel); border:1px solid var(--line); border-left:4px solid var(--accent);
+    border-radius:8px; padding:14px 16px; margin-bottom:10px; color:var(--ink); font-size:1rem; }
+  .choice:hover{ background:var(--accent-soft); }
+  .choice small{ display:block; color:var(--muted); font-size:.84rem; margin-top:3px; font-weight:400; }
+  .choice b{ font-weight:700; }
+  .choice[disabled]{ cursor:not-allowed; opacity:.5; border-left-color:var(--line); }
+  .crumb{ font-size:.86rem; color:var(--muted); margin:0 0 14px; }
+  .backlink{ background:none; border:none; color:var(--accent); font:inherit; font-size:.88rem;
+    cursor:pointer; padding:0; margin-top:6px; text-decoration:underline; }
+  @media print{ .brandbar{position:static;border:none} }
   @media print{
     body{background:#fff;font-size:11.5pt}
     .noprint{display:none!important}
@@ -91,13 +124,41 @@
 <body>
 <div class="wrap">
 
-  <header class="site">
-    <h1>公務人員普通考試　建築工程類科　營建法規概要</h1>
-    <p>歷屆試題（104–115 年）隨機練習與自我評分系統</p>
+  <div class="brandbar">中國科技大學　規劃與設計學院　建築系</div>
+
+  <!-- 封面 -->
+  <section id="view-cover" class="panel">
+    <img class="logo" src="data:image/webp;base64,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" alt="中國科技大學校徽">
+    <p class="org">規劃與設計學院　建築系</p>
+    <div class="rule"></div>
+    <h1 class="sys">國家考試題庫複習系統</h1>
+    <p class="sub">歷屆試題隨機練習・自我評分・複習紀錄匯出</p>
+    <button class="btn enter" id="btnEnter">進入系統</button>
+  </section>
+
+  <!-- 選擇考試等別 -->
+  <section id="view-exam" class="panel hidden">
+    <h2>選擇考試等別</h2>
+    <div id="examList"></div>
+    <button class="backlink" id="backToCover">回封面</button>
+  </section>
+
+  <!-- 選擇應試科目 -->
+  <section id="view-subject" class="panel hidden">
+    <h2>選擇應試科目</h2>
+    <p class="crumb" id="subjCrumb"></p>
+    <div id="subjList"></div>
+    <div class="note">科目名稱依考選部公告之應試專業科目編列，僅列建築系相關之專業科目；共同科目（國文、法學知識與英文）不納入本系統。如與最新公告有出入，請逕行告知調整。</div>
+    <button class="backlink" id="backToExam">重新選擇考試等別</button>
+  </section>
+
+  <header class="site hidden" id="siteHead">
+    <h1 id="headTitle">公務人員普通考試　建築工程類科　營建法規概要</h1>
+    <p id="headSub">歷屆試題（104–115 年）隨機練習與自我評分系統</p>
   </header>
 
   <!-- 開始 -->
-  <section id="view-start" class="panel">
+  <section id="view-start" class="panel hidden">
     <h2>開始練習</h2>
     <p style="margin-top:0;color:var(--muted);font-size:.92rem">
       本系統收錄考選部考畢試題查詢平臺公布之 104 至 115 年普考建築工程「營建法規概要」全部
@@ -131,6 +192,7 @@
 
     <button class="btn" id="btnStart">開始作答</button>
     <button class="btn ghost" id="btnResume">接續上次紀錄</button>
+    <div><button class="backlink" id="backToSubject">重新選擇科目</button></div>
   </section>
 
   <!-- 作答 -->
@@ -191,7 +253,7 @@
     </div>
   </section>
 
-  <div class="foot noprint">
+  <div class="foot noprint" id="siteFoot">
     題源：考選部考畢試題查詢平臺　·　參考答案法源查證自全國法規資料庫、內政部主管法規共用系統、行政院公共工程委員會主管法規共用系統<br>
     法條以現行版本為準；命題當年版本有實質差異者，於參考答案中另行標註。
   </div>
@@ -227,30 +289,100 @@ function grade(text, points){
             total: p.groups.length, missed};
   });
   const hits = detail.filter(d => d.hit).length;
-  let score = Math.round(10 * hits / points.length);
+  const total = points.length;
+  const ratio = total ? hits / total : 0;
   const len = t.length;
-  if(len < 30) score = Math.min(score, 2);
-  else if(len < 80) score = Math.min(score, 5);
-  if(score === 0 && len >= 80) score = 1;
-  return {score, hits, total: points.length, detail};
+  /* 普考取向之寬鬆評分：答題架構符合即給 50% 基本分，其餘 50% 依得分要點逐項累加。 */
+  const BASE = 5;
+  const structured = (len >= 60) && (hits >= 1);
+  let score, base = 0, add = 0;
+  if(structured){
+    base = BASE;
+    add = (10 - BASE) * ratio;
+    score = Math.round(base + add);
+  } else {
+    score = Math.round(4 * ratio);
+    if(len < 30) score = Math.min(score, 1);
+    if(score === 0 && len >= 60) score = 1;
+  }
+  score = Math.max(0, Math.min(10, score));
+  return {score, hits, total, detail, structured, base, add: Math.round(add * 10) / 10};
 }
 
 const BANDS = [
-  [9, "法源與條號正確，核心要件完整列舉，並能延伸論述。"],
-  [7, "法源正確，核心要件大致完整，僅少數項目遺漏。"],
-  [5, "答題方向正確，惟要件明顯不足，或條號誤植而實質內容正確。"],
-  [3, "僅能片段回答，或以常識作答而未引法規。"],
-  [1, "僅寫出零星關鍵詞，未成論述。"],
-  [0, "空白、離題，或所述法規與題目無關。"]
+  [10, "架構完整、要點齊備，這份答案可以直接當成考場的書寫範本。"],
+  [9, "架構完整，要點大致掌握，再補上未命中的項目就接近滿分。"],
+  [7, "架構正確，主要要件已經寫到，把下面未命中的要點補進去即可再上一個層級。"],
+  [5, "答題架構已經站穩，接著把法源條號與要件逐項補齊，分數會很快拉上來。"],
+  [3, "方向可行，但論述偏片段；建議先寫出法規名稱與條號，再依要件分項展開。"],
+  [1, "已經寫出零星關鍵詞；請照「法源→要件→體系關聯→實務例證」四段重新組織一次。"],
+  [0, "先看過參考答案，再回頭把這一題重寫一次，會比硬想有效率。"]
 ];
 function bandOf(s){ for(const b of BANDS){ if(s >= b[0]) return b[1]; } return BANDS[BANDS.length-1][1]; }
 
 /* ---------- 畫面切換 ---------- */
-const V = {start:"view-start", q:"view-q", r:"view-r", end:"view-end"};
+const V = {cover:"view-cover", exam:"view-exam", subject:"view-subject",
+           start:"view-start", q:"view-q", r:"view-r", end:"view-end"};
 function show(name){
   Object.values(V).forEach(id => document.getElementById(id).classList.add("hidden"));
   document.getElementById(V[name]).classList.remove("hidden");
+  const front = (name === "cover" || name === "exam" || name === "subject");
+  document.getElementById("siteHead").classList.toggle("hidden", front);
+  document.getElementById("siteFoot").classList.toggle("hidden", front);
   window.scrollTo({top:0, behavior:"smooth"});
+}
+
+/* ---------- 考試等別與應試科目 ---------- */
+const EXAMS = [
+  {key:"junior", name:"公務人員普通考試", note:"建築工程類科",
+   subjects:[
+     {name:"營建法規概要", ready:true, note:"收錄 104–115 年歷屆試題，已建立參考答案與得分要點"},
+     {name:"施工法及估價概要", ready:false},
+     {name:"建築圖學概要", ready:false},
+     {name:"建築設計", ready:false}
+   ]},
+  {key:"senior", name:"公務人員高等考試三級考試", note:"建築工程類科",
+   subjects:[
+     {name:"營建法規", ready:false},
+     {name:"建築結構系統", ready:false},
+     {name:"建築構造與施工", ready:false},
+     {name:"施工估價與工程管理", ready:false},
+     {name:"建築設計", ready:false}
+   ]}
+];
+let SEL = {exam:null, subject:null};
+
+function renderExams(){
+  const box = document.getElementById("examList");
+  box.innerHTML = "";
+  EXAMS.forEach(e => {
+    const b = document.createElement("button");
+    b.className = "choice";
+    b.innerHTML = "<b>" + e.name + "</b><small>" + e.note + "</small>";
+    b.onclick = () => { SEL.exam = e; renderSubjects(); show("subject"); };
+    box.appendChild(b);
+  });
+}
+function renderSubjects(){
+  document.getElementById("subjCrumb").textContent = SEL.exam.name + "　·　" + SEL.exam.note;
+  const box = document.getElementById("subjList");
+  box.innerHTML = "";
+  SEL.exam.subjects.forEach(s => {
+    const b = document.createElement("button");
+    b.className = "choice";
+    b.disabled = !s.ready;
+    b.innerHTML = "<b>" + s.name + "</b><small>" +
+      (s.ready ? s.note : "題庫建置中，尚未開放") + "</small>";
+    if(s.ready){
+      b.onclick = () => {
+        SEL.subject = s;
+        document.getElementById("headTitle").textContent =
+          SEL.exam.name + "　" + SEL.exam.note + "　" + s.name;
+        show("start");
+      };
+    }
+    box.appendChild(b);
+  });
 }
 
 /* ---------- 狀態保存 ---------- */
@@ -410,8 +542,10 @@ function submit(){
   if(CUR.graded){
     res = grade(text, CUR.scoring_keywords);
     document.getElementById("scoreN").textContent = res.score;
-    document.getElementById("scoreBand").textContent =
-      bandOf(res.score) + "（命中 " + res.hits + " ／ " + res.total + " 項得分要點）";
+    const calc = res.structured
+      ? "計分：架構基本分 " + res.base + " ＋ 要點分 " + res.add.toFixed(1) + "（命中 " + res.hits + " ／ " + res.total + " 項）"
+      : "計分：字數或要點過少，尚未取得架構基本分（命中 " + res.hits + " ／ " + res.total + " 項）";
+    document.getElementById("scoreBand").textContent = bandOf(res.score) + "　" + calc;
   } else {
     document.getElementById("scoreN").textContent = "—";
     document.getElementById("scoreBand").textContent = "本題尚未建立參考答案，不予評分。";
@@ -509,6 +643,10 @@ function renderEnd(){
 }
 
 /* ---------- 事件 ---------- */
+document.getElementById("btnEnter").onclick = () => { renderExams(); show("exam"); };
+document.getElementById("backToCover").onclick = () => show("cover");
+document.getElementById("backToExam").onclick = () => { renderExams(); show("exam"); };
+document.getElementById("backToSubject").onclick = () => { renderSubjects(); show("subject"); };
 document.getElementById("btnStart").onclick = () => { REC = []; buildPool(); if(!POOL.length){ alert(document.getElementById("mode").value === "wrong" ? "錯題本目前是空的，請先以隨機出題模式作答。" : "此範圍沒有題目，請調整篩選條件。"); return; } renderQ(); };
 document.getElementById("btnResume").onclick = () => {
   const st = load(); if(!st) return;
@@ -527,6 +665,7 @@ function recordText(){
   const graded = REC.filter(r => r.score !== null);
   const avg = graded.length ? (graded.reduce((a,b)=>a+b.score,0)/graded.length).toFixed(1) : "—";
   const lines = [];
+  lines.push("中國科技大學　規劃與設計學院　建築系");
   lines.push("公務人員普通考試　建築工程類科　營建法規概要　練習紀錄");
   lines.push("匯出時間：" + new Date().toLocaleString("zh-TW"));
   lines.push("作答題數：" + REC.length + "　已評分：" + graded.length + "　平均：" + avg + " ／ 10");
@@ -568,7 +707,9 @@ function printHTML(){
     'ul.pts{list-style:none;padding:0}ul.pts li{padding:4px 0}li .mk{font-weight:700;margin-right:6px}' +
     '.hd{border-bottom:2px solid #2f5d50;padding-bottom:8px;margin-bottom:16px}' +
     '.hd b{font-size:13pt}.hd span{display:block;font-size:10pt;color:#5f5c55}' +
-    '</style></head><body><div class="hd"><b>公務人員普通考試　建築工程類科　營建法規概要</b>' +
+    '</style></head><body><div class="hd">' +
+    '<div style="font-size:10pt;color:#1a4fa0;text-align:right;font-weight:700;letter-spacing:.04em">中國科技大學　規劃與設計學院　建築系</div>' +
+    '<b>公務人員普通考試　建築工程類科　營建法規概要</b>' +
     '<span>練習紀錄　·　匯出時間 ' + esc(new Date().toLocaleString("zh-TW")) + '</span></div>' +
     body.innerHTML + '</body></html>';
 }
